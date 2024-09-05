@@ -97,6 +97,10 @@ To run e2e tests (the MySQL instance must be available), run the following comma
   pnpm test:e2e
 ```
 
+## Testing graphql
+
+http://localhost:3000/graphql
+
 ## Tech Stack
 
 **Server:** Typescript, MySQL, Nest.js, TypeORM, Apollo

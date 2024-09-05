@@ -13,22 +13,17 @@ const mainOptions: DataSourceOptions = {
   synchronize: false,
   migrations: [CreateTask1654578859820],
   entities: [Task],
+  username : 'root',
+  password  : 'mysql', 
+  database : 'nest',
+  port : 3306
 };
 
-const testOptions: DataSourceOptions & SeederOptions = {
-  type: 'sqlite',
-  database: ':memory:',
-  synchronize: false,
-  migrationsRun: true,
-  entities: [Task],
-  migrations: [CreateTask1654578859820],
-  factories: [TaskFactory],
-  seeds: [TaskSeeder],
-};
+
 
 // used by CLI commands
-export const AppDataSource = new DataSource({ ...testOptions, ...mainOptions });
+export const AppDataSource = new DataSource({  ...mainOptions });
 
 export default registerAs('orm', () =>
-  process.env.NODE_ENV === 'test' ? testOptions : mainOptions,
+  process.env.NODE_ENV === 'test' ? mainOptions : mainOptions,
 );
